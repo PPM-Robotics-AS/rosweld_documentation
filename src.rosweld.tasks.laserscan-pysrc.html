@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.rosweld.tasks.laserscan</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src.rosweld-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;src ::
+        <a href="src.rosweld-module.html">Package&nbsp;rosweld</a> ::
+        <a href="src.rosweld.tasks-module.html">Package&nbsp;tasks</a> ::
+        Module&nbsp;laserscan
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.rosweld.tasks.laserscan-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.rosweld.tasks.laserscan-module.html">Module src.rosweld.tasks.laserscan</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">ROSWELD</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Version 0.0.1, March 2019</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">http://rosin-project.eu/ftp/rosweld</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (c) 2019 PPM Robotics AS</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">This library is part of ROSWELD project,</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">the Focused Technical Project ROSWELD - ROS based framework</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">for planning, monitoring and control of multi-pass robot welding</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">is co-financed by the EU project ROSIN (www.rosin-project.eu)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">and ROS-Industrial initiative (www.rosindustrial.eu).</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">Licensed under the Apache License, Version 2.0 (the "License");</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">you may not use this file except in compliance with the License.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">You may obtain a copy of the License at</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">    http://www.apache.org/licenses/LICENSE-2.0</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">Unless required by applicable law or agreed to in writing, software</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">distributed under the License is distributed on an "AS IS" BASIS,</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">See the License for the specific language governing permissions and</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">limitations under the License.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">std_msgs</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Bool</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">std_srvs</tt><tt class="py-op">.</tt><tt class="py-name">srv</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Empty</tt><tt class="py-op">,</tt> <tt class="py-name">EmptyRequest</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">src</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package src.rosweld=src.rosweld-module.html"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-0', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package src.rosweld.tasks=src.rosweld.tasks-module.html"><a title="src.rosweld.tasks" class="py-name" href="#" onclick="return doclink('link-1', 'tasks', 'link-1');">tasks</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module src.rosweld.tasks.move=src.rosweld.tasks.move-module.html"><a title="src.rosweld.tasks.move" class="py-name" href="#" onclick="return doclink('link-2', 'move', 'link-2');">move</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class src.rosweld.tasks.move.MoveTask=src.rosweld.tasks.move.MoveTask-class.html"><a title="src.rosweld.tasks.move.MoveTask" class="py-name" href="#" onclick="return doclink('link-3', 'MoveTask', 'link-3');">MoveTask</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">src</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-4', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module src.rosweld.robotcontrollerhandler=src.rosweld.robotcontrollerhandler-module.html"><a title="src.rosweld.robotcontrollerhandler" class="py-name" href="#" onclick="return doclink('link-5', 'robotcontrollerhandler', 'link-5');">robotcontrollerhandler</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class src.rosweld.robotcontrollerhandler.RobotControllerHandler=src.rosweld.robotcontrollerhandler.RobotControllerHandler-class.html"><a title="src.rosweld.robotcontrollerhandler.RobotControllerHandler" class="py-name" href="#" onclick="return doclink('link-6', 'RobotControllerHandler', 'link-6');">RobotControllerHandler</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">src</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-7', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module src.rosweld.point=src.rosweld.point-module.html"><a title="src.rosweld.point" class="py-name" href="#" onclick="return doclink('link-8', 'point', 'link-8');">point</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Class src.rosweld.point.Point=src.rosweld.point.Point-class.html"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-9', 'Point', 'link-9');">Point</a></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">src</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-10', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Module src.rosweld.rosproxy=src.rosweld.rosproxy-module.html"><a title="src.rosweld.rosproxy" class="py-name" href="#" onclick="return doclink('link-11', 'rosproxy', 'link-11');">rosproxy</a></tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Class src.rosweld.rosproxy.RosProxy=src.rosweld.rosproxy.RosProxy-class.html"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-12', 'RosProxy', 'link-12');">RosProxy</a></tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask"></a><div id="LaserScanTask-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="LaserScanTask-toggle" onclick="return toggle('LaserScanTask');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html">LaserScanTask</a><tt class="py-op">(</tt><tt class="py-base-class">MoveTask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="LaserScanTask-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-docstring">"""Laser scanning task</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    Arguments:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">        MoveTask {MoveTask} -- parent object</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.__setstate__"></a><div id="LaserScanTask.__setstate__-def"><a name="L45"></a><tt class="py-lineno"> 45</tt> <a class="py-toggle" href="#" id="LaserScanTask.__setstate__-toggle" onclick="return toggle('LaserScanTask.__setstate__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#__setstate__">__setstate__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">d</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.__setstate__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.__setstate__-expanded"><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> <tt class="py-op">=</tt> <tt class="py-name">d</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt id="link-13" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-13', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method src.rosweld.rosproxy.RosProxy.subscribe_topic()=src.rosweld.rosproxy.RosProxy-class.html#subscribe_topic"><a title="src.rosweld.rosproxy.RosProxy.subscribe_topic" class="py-name" href="#" onclick="return doclink('link-14', 'subscribe_topic', 'link-14');">subscribe_topic</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">            <tt class="py-string">"/%s/is_scanning"</tt> <tt class="py-op">%</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">laser_name</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">            <tt class="py-name">Bool</tt><tt class="py-op">,</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method src.rosweld.tasks.laserscan.LaserScanTask.handle_laser_update()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#handle_laser_update"><a title="src.rosweld.tasks.laserscan.LaserScanTask.handle_laser_update" class="py-name" href="#" onclick="return doclink('link-15', 'handle_laser_update', 'link-15');">handle_laser_update</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.__init__"></a><div id="LaserScanTask.__init__-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="LaserScanTask.__init__-toggle" onclick="return toggle('LaserScanTask.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#__init__">__init__</a><tt class="py-op">(</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">            <tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-param">task_type</tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">            <tt class="py-param">progress</tt><tt class="py-op">,</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-param">desc</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-param">title</tt><tt class="py-op">,</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-param">step</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">            <tt class="py-param">current_bead</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.__init__-expanded"><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-docstring">"""Init laser scanning task</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">        Arguments:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">            ITask {super class} -- super class</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">            task_type {string} -- type as string</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">            progress {float} -- progress</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">            desc {string} -- description</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">            title {string} -- title</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">            step {int} -- current step</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">            current_bead {Bead} -- current bead with modifications</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">            path {float[6][]} -- Pose array: x, y, z, r, p, y</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-16" class="py-name" targets="Class src.rosweld.tasks.laserscan.LaserScanTask=src.rosweld.tasks.laserscan.LaserScanTask-class.html"><a title="src.rosweld.tasks.laserscan.LaserScanTask" class="py-name" href="#" onclick="return doclink('link-16', 'LaserScanTask', 'link-16');">LaserScanTask</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method src.rosweld.bead.Bead.__init__()=src.rosweld.bead.Bead-class.html#__init__,Method src.rosweld.calibration.Calibration.__init__()=src.rosweld.calibration.Calibration-class.html#__init__,Method src.rosweld.calibrationpoint.CalibrationPoint.__init__()=src.rosweld.calibrationpoint.CalibrationPoint-class.html#__init__,Method src.rosweld.crosssection.CrossSection.__init__()=src.rosweld.crosssection.CrossSection-class.html#__init__,Method src.rosweld.history.History.__init__()=src.rosweld.history.History-class.html#__init__,Method src.rosweld.irobotcontroller.IRobotController.__init__()=src.rosweld.irobotcontroller.IRobotController-class.html#__init__,Method src.rosweld.irobotcontroller.RobotController.__init__()=src.rosweld.irobotcontroller.RobotController-class.html#__init__,Method src.rosweld.modification.Modification.__init__()=src.rosweld.modification.Modification-class.html#__init__,Method src.rosweld.path.Path.__init__()=src.rosweld.path.Path-class.html#__init__,Method src.rosweld.point.Point.__init__()=src.rosweld.point.Point-class.html#__init__,Method src.rosweld.project.Project.__init__()=src.rosweld.project.Project-class.html#__init__,Method src.rosweld.robotcontroller.RobotController.__init__()=src.rosweld.robotcontroller.RobotController-class.html#__init__,Method src.rosweld.robotcontrollerhandler.RobotControllerHandler.__init__()=src.rosweld.robotcontrollerhandler.RobotControllerHandler-class.html#__init__,Method src.rosweld.rosproxy.RosProxy.__init__()=src.rosweld.rosproxy.RosProxy-class.html#__init__,Method src.rosweld.savableobject.SavableObject.__init__()=src.rosweld.savableobject.SavableObject-class.html#__init__,Method src.rosweld.segment.Segment.__init__()=src.rosweld.segment.Segment-class.html#__init__,Method src.rosweld.settings.groove.GrooveSettings.__init__()=src.rosweld.settings.groove.GrooveSettings-class.html#__init__,Method src.rosweld.settings.project.ProjectSettings.__init__()=src.rosweld.settings.project.ProjectSettings-class.html#__init__,Method src.rosweld.settings.torch.TorchSettings.__init__()=src.rosweld.settings.torch.TorchSettings-class.html#__init__,Method src.rosweld.tasks.container.ContainerTask.__init__()=src.rosweld.tasks.container.ContainerTask-class.html#__init__,Method src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask.__init__()=src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask-class.html#__init__,Method src.rosweld.tasks.itask.ITask.__init__()=src.rosweld.tasks.itask.ITask-class.html#__init__,Method src.rosweld.tasks.laserscan.LaserScanTask.__init__()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#__init__,Method src.rosweld.tasks.move.MoveTask.__init__()=src.rosweld.tasks.move.MoveTask-class.html#__init__,Method src.rosweld.tasks.notify.NotifyTask.__init__()=src.rosweld.tasks.notify.NotifyTask-class.html#__init__,Method src.rosweld.tasks.wait.WaitTask.__init__()=src.rosweld.tasks.wait.WaitTask-class.html#__init__,Method src.rosweld.tasks.weld.WeldTask.__init__()=src.rosweld.tasks.weld.WeldTask-class.html#__init__"><a title="src.rosweld.bead.Bead.__init__
+src.rosweld.calibration.Calibration.__init__
+src.rosweld.calibrationpoint.CalibrationPoint.__init__
+src.rosweld.crosssection.CrossSection.__init__
+src.rosweld.history.History.__init__
+src.rosweld.irobotcontroller.IRobotController.__init__
+src.rosweld.irobotcontroller.RobotController.__init__
+src.rosweld.modification.Modification.__init__
+src.rosweld.path.Path.__init__
+src.rosweld.point.Point.__init__
+src.rosweld.project.Project.__init__
+src.rosweld.robotcontroller.RobotController.__init__
+src.rosweld.robotcontrollerhandler.RobotControllerHandler.__init__
+src.rosweld.rosproxy.RosProxy.__init__
+src.rosweld.savableobject.SavableObject.__init__
+src.rosweld.segment.Segment.__init__
+src.rosweld.settings.groove.GrooveSettings.__init__
+src.rosweld.settings.project.ProjectSettings.__init__
+src.rosweld.settings.torch.TorchSettings.__init__
+src.rosweld.tasks.container.ContainerTask.__init__
+src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask.__init__
+src.rosweld.tasks.itask.ITask.__init__
+src.rosweld.tasks.laserscan.LaserScanTask.__init__
+src.rosweld.tasks.move.MoveTask.__init__
+src.rosweld.tasks.notify.NotifyTask.__init__
+src.rosweld.tasks.wait.WaitTask.__init__
+src.rosweld.tasks.weld.WeldTask.__init__" class="py-name" href="#" onclick="return doclink('link-17', '__init__', 'link-17');">__init__</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">task_type</tt><tt class="py-op">,</tt> <tt class="py-name">progress</tt><tt class="py-op">,</tt> <tt class="py-name">desc</tt><tt class="py-op">,</tt> <tt class="py-name">title</tt><tt class="py-op">,</tt> <tt class="py-name">step</tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name" targets="Variable src.rosweld.tasks.move.MoveTask.current_bead=src.rosweld.tasks.move.MoveTask-class.html#current_bead"><a title="src.rosweld.tasks.move.MoveTask.current_bead" class="py-name" href="#" onclick="return doclink('link-18', 'current_bead', 'link-18');">current_bead</a></tt><tt class="py-op">,</tt> <tt id="link-19" class="py-name" targets="Module src.rosweld.path=src.rosweld.path-module.html"><a title="src.rosweld.path" class="py-name" href="#" onclick="return doclink('link-19', 'path', 'link-19');">path</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">laser_name</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-20', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method src.rosweld.rosproxy.RosProxy.get_param()=src.rosweld.rosproxy.RosProxy-class.html#get_param,Method src.rosweld.tasks.itask.ITask.get_param()=src.rosweld.tasks.itask.ITask-class.html#get_param"><a title="src.rosweld.rosproxy.RosProxy.get_param
+src.rosweld.tasks.itask.ITask.get_param" class="py-name" href="#" onclick="return doclink('link-21', 'get_param', 'link-21');">get_param</a></tt><tt class="py-op">(</tt><tt class="py-string">"laser_name"</tt><tt class="py-op">,</tt> <tt class="py-string">"laser_scanner"</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt id="link-22" class="py-name" targets="Static Method src.rosweld.transformation.Transformation.offset()=src.rosweld.transformation.Transformation-class.html#offset"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-22', 'offset', 'link-22');">offset</a></tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-23', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.get_param
+src.rosweld.tasks.itask.ITask.get_param" class="py-name" href="#" onclick="return doclink('link-24', 'get_param', 'link-21');">get_param</a></tt><tt class="py-op">(</tt><tt class="py-string">"laser_offset"</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-number">0.105</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.03</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-25', 'offset', 'link-22');">offset</a></tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-26', 'Point', 'link-9');">Point</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-27', 'offset', 'link-22');">offset</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-28', 'offset', 'link-22');">offset</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-29', 'offset', 'link-22');">offset</a></tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">rot</tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-30', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.get_param
+src.rosweld.tasks.itask.ITask.get_param" class="py-name" href="#" onclick="return doclink('link-31', 'get_param', 'link-21');">get_param</a></tt><tt class="py-op">(</tt><tt class="py-string">"laser_rotation"</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rotation</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-name">rot</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">scanning</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt id="link-32" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-32', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.subscribe_topic" class="py-name" href="#" onclick="return doclink('link-33', 'subscribe_topic', 'link-14');">subscribe_topic</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-string">"/%s/is_scanning"</tt> <tt class="py-op">%</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">laser_name</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">Bool</tt><tt class="py-op">,</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask.handle_laser_update" class="py-name" href="#" onclick="return doclink('link-34', 'handle_laser_update', 'link-15');">handle_laser_update</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.get_robot_path"></a><div id="LaserScanTask.get_robot_path-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="LaserScanTask.get_robot_path-toggle" onclick="return toggle('LaserScanTask.get_robot_path');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#get_robot_path">get_robot_path</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">offset</tt><tt class="py-op">=</tt><tt id="link-35" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-35', 'Point', 'link-9');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-param">rotation</tt><tt class="py-op">=</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.get_robot_path-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.get_robot_path-expanded"><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-docstring">"""Override get robot path function to be able to add</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">        the offset from the torch</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">        Arguments:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">            offset {Point} -- offset vector from the current path (default: {Point(0,0,0)})</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">            rotation {np.array} -- additional rotation</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">            [type] -- [description]</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">ret</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask" class="py-name" href="#" onclick="return doclink('link-36', 'LaserScanTask', 'link-16');">LaserScanTask</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Method src.rosweld.tasks.laserscan.LaserScanTask.get_robot_path()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#get_robot_path,Method src.rosweld.tasks.move.MoveTask.get_robot_path()=src.rosweld.tasks.move.MoveTask-class.html#get_robot_path"><a title="src.rosweld.tasks.laserscan.LaserScanTask.get_robot_path
+src.rosweld.tasks.move.MoveTask.get_robot_path" class="py-name" href="#" onclick="return doclink('link-37', 'get_robot_path', 'link-37');">get_robot_path</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-38', 'offset', 'link-22');">offset</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rotation</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">ret</tt> </tt>
+</div><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.play"></a><div id="LaserScanTask.play-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="LaserScanTask.play-toggle" onclick="return toggle('LaserScanTask.play');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#play">play</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.play-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.play-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-docstring">"""Play task according to the defined data property</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">        sleect the move type (based on data['type'])</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">        Arguments:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">            data {dict} -- move parameter dict</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">data</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-string">"type"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">data</tt> <tt class="py-keyword">and</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">"type"</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"ScanTask"</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">            <tt class="py-name">ctrl</tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="src.rosweld.robotcontrollerhandler.RobotControllerHandler" class="py-name" href="#" onclick="return doclink('link-39', 'RobotControllerHandler', 'link-6');">RobotControllerHandler</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">            <tt class="py-name">ctrl</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Variable src.rosweld.irobotcontroller.IRobotController.current_controller=src.rosweld.irobotcontroller.IRobotController-class.html#current_controller,Variable src.rosweld.robotcontrollerhandler.RobotControllerHandler.current_controller=src.rosweld.robotcontrollerhandler.RobotControllerHandler-class.html#current_controller"><a title="src.rosweld.irobotcontroller.IRobotController.current_controller
+src.rosweld.robotcontrollerhandler.RobotControllerHandler.current_controller" class="py-name" href="#" onclick="return doclink('link-40', 'current_controller', 'link-40');">current_controller</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Method src.rosweld.irobotcontroller.RobotController.set_speed()=src.rosweld.irobotcontroller.RobotController-class.html#set_speed,Method src.rosweld.robotcontroller.RobotController.set_speed()=src.rosweld.robotcontroller.RobotController-class.html#set_speed"><a title="src.rosweld.irobotcontroller.RobotController.set_speed
+src.rosweld.robotcontroller.RobotController.set_speed" class="py-name" href="#" onclick="return doclink('link-41', 'set_speed', 'link-41');">set_speed</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                <tt class="py-number">1</tt> <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Variable src.rosweld.tasks.move.MoveTask.speed=src.rosweld.tasks.move.MoveTask-class.html#speed,Variable src.rosweld.tasks.weld.WeldTask.speed=src.rosweld.tasks.weld.WeldTask-class.html#speed"><a title="src.rosweld.tasks.move.MoveTask.speed
+src.rosweld.tasks.weld.WeldTask.speed" class="py-name" href="#" onclick="return doclink('link-42', 'speed', 'link-42');">speed</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">else</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="src.rosweld.tasks.move.MoveTask.speed
+src.rosweld.tasks.weld.WeldTask.speed" class="py-name" href="#" onclick="return doclink('link-43', 'speed', 'link-42');">speed</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt id="link-44" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-44', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name" targets="Method src.rosweld.rosproxy.RosProxy.notify()=src.rosweld.rosproxy.RosProxy-class.html#notify,Module src.rosweld.tasks.notify=src.rosweld.tasks.notify-module.html"><a title="src.rosweld.rosproxy.RosProxy.notify
+src.rosweld.tasks.notify" class="py-name" href="#" onclick="return doclink('link-45', 'notify', 'link-45');">notify</a></tt><tt class="py-op">(</tt><tt class="py-string">"Enabling scanning"</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt id="link-46" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-46', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method src.rosweld.rosproxy.RosProxy.call_service()=src.rosweld.rosproxy.RosProxy-class.html#call_service"><a title="src.rosweld.rosproxy.RosProxy.call_service" class="py-name" href="#" onclick="return doclink('link-47', 'call_service', 'link-47');">call_service</a></tt><tt class="py-op">(</tt><tt class="py-string">"/%s/start"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">laser_name</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">Empty</tt><tt class="py-op">,</tt> <tt class="py-name">EmptyRequest</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">            <tt class="py-name">moves</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask.get_robot_path
+src.rosweld.tasks.move.MoveTask.get_robot_path" class="py-name" href="#" onclick="return doclink('link-48', 'get_robot_path', 'link-37');">get_robot_path</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">            <tt class="py-name">ctrl</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="src.rosweld.irobotcontroller.IRobotController.current_controller
+src.rosweld.robotcontrollerhandler.RobotControllerHandler.current_controller" class="py-name" href="#" onclick="return doclink('link-49', 'current_controller', 'link-40');">current_controller</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method src.rosweld.irobotcontroller.RobotController.move_along()=src.rosweld.irobotcontroller.RobotController-class.html#move_along,Method src.rosweld.robotcontroller.RobotController.move_along()=src.rosweld.robotcontroller.RobotController-class.html#move_along"><a title="src.rosweld.irobotcontroller.RobotController.move_along
+src.rosweld.robotcontroller.RobotController.move_along" class="py-name" href="#" onclick="return doclink('link-50', 'move_along', 'link-50');">move_along</a></tt><tt class="py-op">(</tt><tt class="py-name">moves</tt><tt class="py-op">)</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask" class="py-name" href="#" onclick="return doclink('link-51', 'LaserScanTask', 'link-16');">LaserScanTask</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method src.rosweld.tasks.container.ContainerTask.play()=src.rosweld.tasks.container.ContainerTask-class.html#play,Method src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask.play()=src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask-class.html#play,Method src.rosweld.tasks.itask.ITask.play()=src.rosweld.tasks.itask.ITask-class.html#play,Method src.rosweld.tasks.laserscan.LaserScanTask.play()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#play,Method src.rosweld.tasks.move.MoveTask.play()=src.rosweld.tasks.move.MoveTask-class.html#play,Method src.rosweld.tasks.notify.NotifyTask.play()=src.rosweld.tasks.notify.NotifyTask-class.html#play,Method src.rosweld.tasks.wait.WaitTask.play()=src.rosweld.tasks.wait.WaitTask-class.html#play,Method src.rosweld.tasks.weld.WeldTask.play()=src.rosweld.tasks.weld.WeldTask-class.html#play"><a title="src.rosweld.tasks.container.ContainerTask.play
+src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask.play
+src.rosweld.tasks.itask.ITask.play
+src.rosweld.tasks.laserscan.LaserScanTask.play
+src.rosweld.tasks.move.MoveTask.play
+src.rosweld.tasks.notify.NotifyTask.play
+src.rosweld.tasks.wait.WaitTask.play
+src.rosweld.tasks.weld.WeldTask.play" class="py-name" href="#" onclick="return doclink('link-52', 'play', 'link-52');">play</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.handle_laser_update"></a><div id="LaserScanTask.handle_laser_update-def"><a name="L131"></a><tt class="py-lineno">131</tt> <a class="py-toggle" href="#" id="LaserScanTask.handle_laser_update-toggle" onclick="return toggle('LaserScanTask.handle_laser_update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#handle_laser_update">handle_laser_update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.handle_laser_update-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.handle_laser_update-expanded"><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-docstring">"""Handle the updates coming from the laser scanner</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">        Arguments:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">            data {Bool} -- The scanner is on or off</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">scanning</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt> </tt>
+</div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.handle_robot_step_changed"></a><div id="LaserScanTask.handle_robot_step_changed-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="LaserScanTask.handle_robot_step_changed-toggle" onclick="return toggle('LaserScanTask.handle_robot_step_changed');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#handle_robot_step_changed">handle_robot_step_changed</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">step</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.handle_robot_step_changed-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.handle_robot_step_changed-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-docstring">"""Handle the robot step change</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">        The weld task is subscribed to the current step coming from the robot.</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">        If there is welding parameter changes for the current step,</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">        the task will request the WPS to change accordingly</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="src.rosweld.path" class="py-name" href="#" onclick="return doclink('link-53', 'path', 'link-19');">path</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">scanning</tt> <tt class="py-keyword">and</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="src.rosweld.path" class="py-name" href="#" onclick="return doclink('link-54', 'path', 'link-19');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">points</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">step</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> <tt class="py-keyword">and</tt> <tt class="py-name">step</tt> <tt class="py-op">!=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">step</tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">            <tt id="link-55" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-55', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.notify
+src.rosweld.tasks.notify" class="py-name" href="#" onclick="return doclink('link-56', 'notify', 'link-45');">notify</a></tt><tt class="py-op">(</tt><tt class="py-string">"Disabling scanning"</tt><tt class="py-op">)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">            <tt id="link-57" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-57', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.call_service" class="py-name" href="#" onclick="return doclink('link-58', 'call_service', 'link-47');">call_service</a></tt><tt class="py-op">(</tt><tt class="py-string">"/%s/stop"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">laser_name</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">Empty</tt><tt class="py-op">,</tt> <tt class="py-name">EmptyRequest</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-59" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask" class="py-name" href="#" onclick="return doclink('link-59', 'LaserScanTask', 'link-16');">LaserScanTask</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name" targets="Method src.rosweld.project.Project.handle_robot_step_changed()=src.rosweld.project.Project-class.html#handle_robot_step_changed,Method src.rosweld.tasks.laserscan.LaserScanTask.handle_robot_step_changed()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#handle_robot_step_changed,Method src.rosweld.tasks.move.MoveTask.handle_robot_step_changed()=src.rosweld.tasks.move.MoveTask-class.html#handle_robot_step_changed,Method src.rosweld.tasks.weld.WeldTask.handle_robot_step_changed()=src.rosweld.tasks.weld.WeldTask-class.html#handle_robot_step_changed"><a title="src.rosweld.project.Project.handle_robot_step_changed
+src.rosweld.tasks.laserscan.LaserScanTask.handle_robot_step_changed
+src.rosweld.tasks.move.MoveTask.handle_robot_step_changed
+src.rosweld.tasks.weld.WeldTask.handle_robot_step_changed" class="py-name" href="#" onclick="return doclink('link-60', 'handle_robot_step_changed', 'link-60');">handle_robot_step_changed</a></tt><tt class="py-op">(</tt><tt class="py-name">step</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.pause"></a><div id="LaserScanTask.pause-def"><a name="L158"></a><tt class="py-lineno">158</tt> <a class="py-toggle" href="#" id="LaserScanTask.pause-toggle" onclick="return toggle('LaserScanTask.pause');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#pause">pause</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.pause-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.pause-expanded"><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-docstring">"""Stop scanning if pause called</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt id="link-61" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-61', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.call_service" class="py-name" href="#" onclick="return doclink('link-62', 'call_service', 'link-47');">call_service</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">            <tt class="py-string">"/%s/stop"</tt> <tt class="py-op">%</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">laser_name</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt class="py-name">Empty</tt><tt class="py-op">,</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">            <tt class="py-name">EmptyRequest</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask" class="py-name" href="#" onclick="return doclink('link-63', 'LaserScanTask', 'link-16');">LaserScanTask</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name" targets="Method src.rosweld.tasks.container.ContainerTask.pause()=src.rosweld.tasks.container.ContainerTask-class.html#pause,Method src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask.pause()=src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask-class.html#pause,Method src.rosweld.tasks.itask.ITask.pause()=src.rosweld.tasks.itask.ITask-class.html#pause,Method src.rosweld.tasks.laserscan.LaserScanTask.pause()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#pause,Method src.rosweld.tasks.move.MoveTask.pause()=src.rosweld.tasks.move.MoveTask-class.html#pause,Method src.rosweld.tasks.notify.NotifyTask.pause()=src.rosweld.tasks.notify.NotifyTask-class.html#pause,Method src.rosweld.tasks.wait.WaitTask.pause()=src.rosweld.tasks.wait.WaitTask-class.html#pause,Method src.rosweld.tasks.weld.WeldTask.pause()=src.rosweld.tasks.weld.WeldTask-class.html#pause"><a title="src.rosweld.tasks.container.ContainerTask.pause
+src.rosweld.tasks.forcyclecontainer.ForCycleContainerTask.pause
+src.rosweld.tasks.itask.ITask.pause
+src.rosweld.tasks.laserscan.LaserScanTask.pause
+src.rosweld.tasks.move.MoveTask.pause
+src.rosweld.tasks.notify.NotifyTask.pause
+src.rosweld.tasks.wait.WaitTask.pause
+src.rosweld.tasks.weld.WeldTask.pause" class="py-name" href="#" onclick="return doclink('link-64', 'pause', 'link-64');">pause</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt id="link-65" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-65', 'RosProxy', 'link-12');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.notify
+src.rosweld.tasks.notify" class="py-name" href="#" onclick="return doclink('link-66', 'notify', 'link-45');">notify</a></tt><tt class="py-op">(</tt><tt class="py-string">"Scanning stopped"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"> </tt>
+<a name="LaserScanTask.input"></a><div id="LaserScanTask.input-def"><a name="L170"></a><tt class="py-lineno">170</tt> <a class="py-toggle" href="#" id="LaserScanTask.input-toggle" onclick="return toggle('LaserScanTask.input');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.rosweld.tasks.laserscan.LaserScanTask-class.html#input">input</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="LaserScanTask.input-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="LaserScanTask.input-expanded"><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-docstring">"""Change the offset/rotation of the current laserscan task</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">        Arguments:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">            data {dict} -- dictionary containing the param to change and its value</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-67" class="py-name"><a title="src.rosweld.tasks.laserscan.LaserScanTask" class="py-name" href="#" onclick="return doclink('link-67', 'LaserScanTask', 'link-16');">LaserScanTask</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name" targets="Method src.rosweld.tasks.container.ContainerTask.input()=src.rosweld.tasks.container.ContainerTask-class.html#input,Method src.rosweld.tasks.itask.ITask.input()=src.rosweld.tasks.itask.ITask-class.html#input,Method src.rosweld.tasks.laserscan.LaserScanTask.input()=src.rosweld.tasks.laserscan.LaserScanTask-class.html#input,Method src.rosweld.tasks.move.MoveTask.input()=src.rosweld.tasks.move.MoveTask-class.html#input"><a title="src.rosweld.tasks.container.ContainerTask.input
+src.rosweld.tasks.itask.ITask.input
+src.rosweld.tasks.laserscan.LaserScanTask.input
+src.rosweld.tasks.move.MoveTask.input" class="py-name" href="#" onclick="return doclink('link-68', 'input', 'link-68');">input</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'param'</tt><tt class="py-op">]</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-name">v</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'value'</tt><tt class="py-op">]</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">p</tt> <tt class="py-op">==</tt> <tt class="py-string">"offset"</tt><tt class="py-op">:</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="src.rosweld.transformation.Transformation.offset" class="py-name" href="#" onclick="return doclink('link-69', 'offset', 'link-22');">offset</a></tt> <tt class="py-op">=</tt> <tt id="link-70" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-70', 'Point', 'link-9');">Point</a></tt><tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt class="py-string">'x'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt class="py-string">'y'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt class="py-string">'z'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">p</tt> <tt class="py-op">==</tt> <tt class="py-string">"rotation"</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rotation</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt class="py-string">'r'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt class="py-string">'p'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt class="py-string">'y'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src.rosweld-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Mon Mar  4 09:54:19 2019
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

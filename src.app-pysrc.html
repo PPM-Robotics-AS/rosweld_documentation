@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.app</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        Module&nbsp;app
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.app-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.app-module.html">Module src.app</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">rospy</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package src=src-module.html"><a title="src" class="py-name" href="#" onclick="return doclink('link-0', 'src', 'link-0');">src</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package src.rosweld=src.rosweld-module.html"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-1', 'rosweld', 'link-1');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module src.rosweld.robotcontrollerhandler=src.rosweld.robotcontrollerhandler-module.html"><a title="src.rosweld.robotcontrollerhandler" class="py-name" href="#" onclick="return doclink('link-2', 'robotcontrollerhandler', 'link-2');">robotcontrollerhandler</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class src.rosweld.robotcontrollerhandler.RobotControllerHandler=src.rosweld.robotcontrollerhandler.RobotControllerHandler-class.html"><a title="src.rosweld.robotcontrollerhandler.RobotControllerHandler" class="py-name" href="#" onclick="return doclink('link-3', 'RobotControllerHandler', 'link-3');">RobotControllerHandler</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="src" class="py-name" href="#" onclick="return doclink('link-4', 'src', 'link-0');">src</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-5', 'rosweld', 'link-1');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module src.rosweld.project=src.rosweld.project-module.html,Module src.rosweld.settings.project=src.rosweld.settings.project-module.html"><a title="src.rosweld.project
+src.rosweld.settings.project" class="py-name" href="#" onclick="return doclink('link-6', 'project', 'link-6');">project</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class src.rosweld.project.Project=src.rosweld.project.Project-class.html"><a title="src.rosweld.project.Project" class="py-name" href="#" onclick="return doclink('link-7', 'Project', 'link-7');">Project</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name"><a title="src" class="py-name" href="#" onclick="return doclink('link-8', 'src', 'link-0');">src</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-9', 'rosweld', 'link-1');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Module src.rosweld.rosproxy=src.rosweld.rosproxy-module.html"><a title="src.rosweld.rosproxy" class="py-name" href="#" onclick="return doclink('link-10', 'rosproxy', 'link-10');">rosproxy</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Class src.rosweld.rosproxy.RosProxy=src.rosweld.rosproxy.RosProxy-class.html"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-11', 'RosProxy', 'link-11');">RosProxy</a></tt> </tt>
+<a name="RosWeld"></a><div id="RosWeld-def"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="RosWeld-toggle" onclick="return toggle('RosWeld');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.app.RosWeld-class.html">RosWeld</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RosWeld-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="RosWeld-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-docstring">"""RosWeld main class to start the application</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="RosWeld.main"></a><div id="RosWeld.main-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="RosWeld.main-toggle" onclick="return toggle('RosWeld.main');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.app.RosWeld-class.html#main">main</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RosWeld.main-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="RosWeld.main-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt class="py-docstring">"""Start ROSweld main program</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">        Load the project and create the robot controllers</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt id="link-12" class="py-name"><a title="src.rosweld.project.Project" class="py-name" href="#" onclick="return doclink('link-12', 'Project', 'link-7');">Project</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method src.rosweld.savableobject.SavableObject.load()=src.rosweld.savableobject.SavableObject-class.html#load"><a title="src.rosweld.savableobject.SavableObject.load" class="py-name" href="#" onclick="return doclink('link-13', 'load', 'link-13');">load</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="src.rosweld.robotcontrollerhandler.RobotControllerHandler" class="py-name" href="#" onclick="return doclink('link-14', 'RobotControllerHandler', 'link-3');">RobotControllerHandler</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-15', 'RosProxy', 'link-11');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method src.rosweld.rosproxy.RosProxy.notify()=src.rosweld.rosproxy.RosProxy-class.html#notify,Module src.rosweld.tasks.notify=src.rosweld.tasks.notify-module.html"><a title="src.rosweld.rosproxy.RosProxy.notify
+src.rosweld.tasks.notify" class="py-name" href="#" onclick="return doclink('link-16', 'notify', 'link-16');">notify</a></tt><tt class="py-op">(</tt><tt class="py-string">"ROSweld Core - ready"</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">            <tt class="py-name">rospy</tt><tt class="py-op">.</tt><tt class="py-name">spin</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">            <tt id="link-17" class="py-name"><a title="src.rosweld.rosproxy.RosProxy" class="py-name" href="#" onclick="return doclink('link-17', 'RosProxy', 'link-11');">RosProxy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="src.rosweld.rosproxy.RosProxy.notify
+src.rosweld.tasks.notify" class="py-name" href="#" onclick="return doclink('link-18', 'notify', 'link-16');">notify</a></tt><tt class="py-op">(</tt><tt class="py-string">"ROSweld Core - stopped"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Class src.app.RosWeld=src.app.RosWeld-class.html"><a title="src.app.RosWeld" class="py-name" href="#" onclick="return doclink('link-19', 'RosWeld', 'link-19');">RosWeld</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Static Method src.app.RosWeld.main()=src.app.RosWeld-class.html#main"><a title="src.app.RosWeld.main" class="py-name" href="#" onclick="return doclink('link-20', 'main', 'link-20');">main</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Thu Feb 28 17:32:35 2019
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

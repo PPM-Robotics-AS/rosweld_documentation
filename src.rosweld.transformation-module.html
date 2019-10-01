@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.rosweld.transformation</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src.rosweld-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;src ::
+        <a href="src.rosweld-module.html">Package&nbsp;rosweld</a> ::
+        Module&nbsp;transformation
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.rosweld.transformation-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module transformation</h1><p class="nomargin-top"><span class="codelink"><a href="src.rosweld.transformation-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+ROSWELD
+Version 0.0.1, March 2019
+http://rosin-project.eu/ftp/rosweld
+
+Copyright (c) 2019 PPM Robotics AS
+
+This library is part of ROSWELD project,
+the Focused Technical Project ROSWELD - ROS based framework
+for planning, monitoring and control of multi-pass robot welding
+is co-financed by the EU project ROSIN (www.rosin-project.eu)
+and ROS-Industrial initiative (www.rosindustrial.eu).
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="src.rosweld.transformation.Transformation-class.html" class="summary-name">Transformation</a><br />
+      Transformation class to handle the real world - model space 
+        conversion object {Object} -- base class
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.rosweld.transformation-module.html#change_basis" class="summary-sig-name">change_basis</a>(<span class="summary-sig-arg">A</span>,
+        <span class="summary-sig-arg">B</span>,
+        <span class="summary-sig-arg">C</span>)</span><br />
+      Calculates the transformation needed to transform a triangle given by three points.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.rosweld.transformation-pysrc.html#change_basis">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.rosweld.transformation-module.html#change_basis_method" class="summary-sig-name">change_basis_method</a>(<span class="summary-sig-arg">pair1</span>,
+        <span class="summary-sig-arg">pair2</span>,
+        <span class="summary-sig-arg">pair3</span>)</span><br />
+      Calculates the transformation needed to transform T1(A1B1C1) triangle 
+to its isometric counterpart T2(A2B2C2).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.rosweld.transformation-pysrc.html#change_basis_method">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.rosweld.transformation-module.html#wellness" class="summary-sig-name">wellness</a>(<span class="summary-sig-arg">model</span>)</span><br />
+      Calculate wellness value</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.rosweld.transformation-pysrc.html#wellness">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.rosweld.transformation-module.html#recover_homogenous_affine_transformation" class="summary-sig-name">recover_homogenous_affine_transformation</a>(<span class="summary-sig-arg">model</span>,
+        <span class="summary-sig-arg">robot</span>)</span><br />
+      Create transformation matrix for the given model and robot points</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.rosweld.transformation-pysrc.html#recover_homogenous_affine_transformation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.rosweld.transformation-module.html#normalized" class="summary-sig-name">normalized</a>(<span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">axis</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">order</span>=<span class="summary-sig-default">2</span>)</span><br />
+      Normalize a vector</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.rosweld.transformation-pysrc.html#normalized">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="src.rosweld.transformation-module.html#x_zto_transformation" class="summary-sig-name">x_zto_transformation</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">a</span>)</span><br />
+      Generate Transformation matrix for rotation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="src.rosweld.transformation-pysrc.html#x_zto_transformation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'src.rosweld'"><code class="variable-quote">'</code><code class="variable-string">src.rosweld</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="change_basis"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">change_basis</span>(<span class="sig-arg">A</span>,
+        <span class="sig-arg">B</span>,
+        <span class="sig-arg">C</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.rosweld.transformation-pysrc.html#change_basis">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Calculates the transformation needed to transform a triangle given by three points.
+The triangle lays on the xy plane. CA vector is the x axis, and CB defines the direction
+of y. The z axis is generated by the right hand rule.
+
+The algorithm and naming convention is based on the document
+&quot;TPK 4170 - CAD to Fixture.doc&quot;.
+
+Arguments:
+    A {nparray} -- Vector 1
+    B {nparray} -- Vector 2
+    C {nparray} -- Vector 3
+
+Returns:
+    nparray -- NSA transformation matrix
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="change_basis_method"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">change_basis_method</span>(<span class="sig-arg">pair1</span>,
+        <span class="sig-arg">pair2</span>,
+        <span class="sig-arg">pair3</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.rosweld.transformation-pysrc.html#change_basis_method">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Calculates the transformation needed to transform T1(A1B1C1) triangle 
+to its isometric counterpart T2(A2B2C2).
+T1-to-base and T2-to-base transformations are calculated with the 
+ChangeBasisMethod. To get the transformation T1-to-T2 T1-to-base has 
+to be inverted and multiplied by T2-to-base
+
+Arguments:
+    pair1 {tuple} -- Model-World pairs for Point1
+    pair2 {tuple} -- Model-World pairs for Point2
+    pair3 {tuple} -- Model-World pairs for Point3
+
+Returns:
+    nparray -- Transformation matrix
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="wellness"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">wellness</span>(<span class="sig-arg">model</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.rosweld.transformation-pysrc.html#wellness">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Calculate wellness value
+
+Arguments:
+    model {array} -- Model points to define a triangle
+
+Returns:
+    float -- wellness value
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="recover_homogenous_affine_transformation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">recover_homogenous_affine_transformation</span>(<span class="sig-arg">model</span>,
+        <span class="sig-arg">robot</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.rosweld.transformation-pysrc.html#recover_homogenous_affine_transformation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Create transformation matrix for the given model and robot points
+
+Arguments:
+    model {Point[]} -- Model points
+    robot {Point[]} -- Robot points
+
+Returns:
+    nparray -- Transformation matrix
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="normalized"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">normalized</span>(<span class="sig-arg">a</span>,
+        <span class="sig-arg">axis</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">order</span>=<span class="sig-default">2</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.rosweld.transformation-pysrc.html#normalized">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Normalize a vector
+
+Arguments:
+    a {nparray} -- vector to normalize
+
+Keyword Arguments:
+    axis {int} -- axis (default: {-1})
+    order {int} -- order (default: {2})
+
+Returns:
+    nparray -- normalized vector
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="x_zto_transformation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">x_zto_transformation</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">a</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="src.rosweld.transformation-pysrc.html#x_zto_transformation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Generate Transformation matrix for rotation
+
+Arguments:
+    t {nparray} -- X axis
+    a {nparray} -- normal
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src.rosweld-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Mon Mar  4 09:54:19 2019
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

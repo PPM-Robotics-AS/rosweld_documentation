@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>src.tests.test_transformation</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="src-module.html">Package&nbsp;src</a> ::
+        <a href="src.tests-module.html">Package&nbsp;tests</a> ::
+        Module&nbsp;test_transformation
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="src.tests.test_transformation-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="src.tests.test_transformation-module.html">Module src.tests.test_transformation</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">copy</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">geometry_msgs</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Pose</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tf</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">math</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package src.rosweld=src.rosweld-module.html"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-0', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module src.rosweld.calibrationpoint=src.rosweld.calibrationpoint-module.html"><a title="src.rosweld.calibrationpoint" class="py-name" href="#" onclick="return doclink('link-1', 'calibrationpoint', 'link-1');">calibrationpoint</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class src.rosweld.calibrationpoint.CalibrationPoint=src.rosweld.calibrationpoint.CalibrationPoint-class.html"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-2', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-3', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module src.rosweld.point=src.rosweld.point-module.html"><a title="src.rosweld.point" class="py-name" href="#" onclick="return doclink('link-4', 'point', 'link-4');">point</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class src.rosweld.point.Point=src.rosweld.point.Point-class.html"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-5', 'Point', 'link-5');">Point</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="src.rosweld" class="py-name" href="#" onclick="return doclink('link-6', 'rosweld', 'link-0');">rosweld</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module src.rosweld.transformation=src.rosweld.transformation-module.html"><a title="src.rosweld.transformation" class="py-name" href="#" onclick="return doclink('link-7', 'transformation', 'link-7');">transformation</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Class src.rosweld.transformation.Transformation=src.rosweld.transformation.Transformation-class.html"><a title="src.rosweld.transformation.Transformation" class="py-name" href="#" onclick="return doclink('link-8', 'Transformation', 'link-8');">Transformation</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="TestTransformation"></a><div id="TestTransformation-def"><a name="L11"></a><tt class="py-lineno"> 11</tt> <a class="py-toggle" href="#" id="TestTransformation-toggle" onclick="return toggle('TestTransformation');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="src.tests.test_transformation.TestTransformation-class.html">TestTransformation</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestTransformation-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TestTransformation-expanded"><a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="TestTransformation.nearly_equal"></a><div id="TestTransformation.nearly_equal-def"><a name="L13"></a><tt class="py-lineno"> 13</tt> <a class="py-toggle" href="#" id="TestTransformation.nearly_equal-toggle" onclick="return toggle('TestTransformation.nearly_equal');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.tests.test_transformation.TestTransformation-class.html#nearly_equal">nearly_equal</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">a</tt><tt class="py-op">,</tt> <tt class="py-param">b</tt><tt class="py-op">,</tt> <tt class="py-param">sig_fig</tt><tt class="py-op">=</tt><tt class="py-number">6</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestTransformation.nearly_equal-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestTransformation.nearly_equal-expanded"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt> <tt class="py-name">a</tt><tt class="py-op">==</tt><tt class="py-name">b</tt> <tt class="py-keyword">or</tt>  </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">            <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">a</tt><tt class="py-op">*</tt><tt class="py-number">10</tt><tt class="py-op">**</tt><tt class="py-name">sig_fig</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">*</tt><tt class="py-number">10</tt><tt class="py-op">**</tt><tt class="py-name">sig_fig</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+</div><a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">     </tt>
+<a name="TestTransformation.test_get_transformation_matrix"></a><div id="TestTransformation.test_get_transformation_matrix-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="TestTransformation.test_get_transformation_matrix-toggle" onclick="return toggle('TestTransformation.test_get_transformation_matrix');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="src.tests.test_transformation.TestTransformation-class.html#test_get_transformation_matrix">test_get_transformation_matrix</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TestTransformation.test_get_transformation_matrix-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TestTransformation.test_get_transformation_matrix-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-name">M</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="src.rosweld.transformation.Transformation" class="py-name" href="#" onclick="return doclink('link-9', 'Transformation', 'link-8');">Transformation</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Static Method src.rosweld.transformation.Transformation.get_transformation_matrix()=src.rosweld.transformation.Transformation-class.html#get_transformation_matrix"><a title="src.rosweld.transformation.Transformation.get_transformation_matrix" class="py-name" href="#" onclick="return doclink('link-10', 'get_transformation_matrix', 'link-10');">get_transformation_matrix</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">M</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">identity</tt><tt class="py-op">(</tt><tt class="py-number">4</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="src.rosweld.point" class="py-name" href="#" onclick="return doclink('link-11', 'point', 'link-4');">point</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-12', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-13', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-name">M</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="src.rosweld.transformation.Transformation" class="py-name" href="#" onclick="return doclink('link-14', 'Transformation', 'link-8');">Transformation</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="src.rosweld.transformation.Transformation.get_transformation_matrix" class="py-name" href="#" onclick="return doclink('link-15', 'get_transformation_matrix', 'link-10');">get_transformation_matrix</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt id="link-16" class="py-name"><a title="src.rosweld.point" class="py-name" href="#" onclick="return doclink('link-16', 'point', 'link-4');">point</a></tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="src.rosweld.point" class="py-name" href="#" onclick="return doclink('link-17', 'point', 'link-4');">point</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">M</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">(</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-name">p</tt> <tt class="py-op">=</tt> <tt class="py-name">Pose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">position</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-18', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt><tt class="py-number">0.</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-name">M</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="src.rosweld.transformation.Transformation" class="py-name" href="#" onclick="return doclink('link-19', 'Transformation', 'link-8');">Transformation</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="src.rosweld.transformation.Transformation.get_transformation_matrix" class="py-name" href="#" onclick="return doclink('link-20', 'get_transformation_matrix', 'link-10');">get_transformation_matrix</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                <tt id="link-21" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-21', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-22', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.14</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">copy</tt><tt class="py-op">.</tt><tt class="py-name">deepcopy</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt id="link-23" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-23', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-24', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.25</tt><tt class="py-op">,</tt> <tt class="py-number">0.12</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">copy</tt><tt class="py-op">.</tt><tt class="py-name">deepcopy</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt id="link-25" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-25', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-26', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">copy</tt><tt class="py-op">.</tt><tt class="py-name">deepcopy</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                <tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">M</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">(</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                <tt class="py-op">[</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">1.</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">exp</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                        <tt class="py-op">[</tt>  <tt class="py-number">0.99966246832397065</tt><tt class="py-op">,</tt>  <tt class="py-op">-</tt><tt class="py-number">0.025979788767932607</tt>  <tt class="py-op">,</tt>   <tt class="py-number">0.00000000000000034520997171938461</tt><tt class="py-op">,</tt>  <tt class="py-number">0.29720907924080858</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                        <tt class="py-op">[</tt>  <tt class="py-number">0.024466255937143053</tt><tt class="py-op">,</tt>   <tt class="py-number">0.94142404386902978</tt><tt class="py-op">,</tt>  <tt class="py-op">-</tt><tt class="py-number">0.3363363969981561</tt><tt class="py-op">,</tt>  <tt class="py-op">-</tt><tt class="py-number">0.10156291562514719</tt>     <tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                        <tt class="py-op">[</tt>   <tt class="py-number">0.0087379485489792949</tt>       <tt class="py-op">,</tt>   <tt class="py-number">0.33622287281036767</tt><tt class="py-op">,</tt>   <tt class="py-number">0.94174191159483744</tt><tt class="py-op">,</tt>   <tt class="py-number">0.09944181584816171</tt>   <tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                        <tt class="py-op">[</tt>  <tt class="py-number">0.00000000e+00</tt><tt class="py-op">,</tt>   <tt class="py-number">0.00000000e+00</tt><tt class="py-op">,</tt>   <tt class="py-number">0.00000000e+00</tt><tt class="py-op">,</tt>   <tt class="py-number">1.00000000e+00</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">flatten</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">p1</tt> <tt class="py-op">=</tt> <tt class="py-name">Pose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">p1</tt><tt class="py-op">.</tt><tt class="py-name">position</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-27', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.3</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">0.1</tt><tt class="py-op">,</tt> <tt class="py-number">0.1</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">p2</tt> <tt class="py-op">=</tt> <tt class="py-name">Pose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-name">p2</tt><tt class="py-op">.</tt><tt class="py-name">position</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-28', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.55</tt><tt class="py-op">,</tt> <tt class="py-op">-</tt><tt class="py-number">0.1</tt><tt class="py-op">,</tt> <tt class="py-number">0.1</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-name">p3</tt> <tt class="py-op">=</tt> <tt class="py-name">Pose</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">p3</tt><tt class="py-op">.</tt><tt class="py-name">position</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-29', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.55</tt><tt class="py-op">,</tt> <tt class="py-number">0.04</tt><tt class="py-op">,</tt> <tt class="py-number">0.15</tt><tt class="py-op">)</tt>   </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">M</tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="src.rosweld.transformation.Transformation" class="py-name" href="#" onclick="return doclink('link-30', 'Transformation', 'link-8');">Transformation</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="src.rosweld.transformation.Transformation.get_transformation_matrix" class="py-name" href="#" onclick="return doclink('link-31', 'get_transformation_matrix', 'link-10');">get_transformation_matrix</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                <tt id="link-32" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-32', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-33', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">p1</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt id="link-34" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-34', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-35', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.25</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">p2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                <tt id="link-36" class="py-name"><a title="src.rosweld.calibrationpoint.CalibrationPoint" class="py-name" href="#" onclick="return doclink('link-36', 'CalibrationPoint', 'link-2');">CalibrationPoint</a></tt><tt class="py-op">(</tt><tt id="link-37" class="py-name"><a title="src.rosweld.point.Point" class="py-name" href="#" onclick="return doclink('link-37', 'Point', 'link-5');">Point</a></tt><tt class="py-op">(</tt><tt class="py-number">0.25</tt><tt class="py-op">,</tt> <tt class="py-number">0.14</tt><tt class="py-op">,</tt> <tt class="py-number">0.</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">p3</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">flatten</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">         </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">M</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">exp</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">M</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-keyword">assert</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method src.tests.test_transformation.TestTransformation.nearly_equal()=src.tests.test_transformation.TestTransformation-class.html#nearly_equal"><a title="src.tests.test_transformation.TestTransformation.nearly_equal" class="py-name" href="#" onclick="return doclink('link-38', 'nearly_equal', 'link-38');">nearly_equal</a></tt><tt class="py-op">(</tt><tt class="py-name">M</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">exp</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">allclose</tt><tt class="py-op">(</tt><tt class="py-name">M</tt><tt class="py-op">,</tt> <tt class="py-name">exp</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-comment">#     def test_apply_path(self):</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-comment">#         path = "415.500       -30.000 -10.000 0.000000        0.000000        1.000000\r\n\</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-comment">#                 392.289       -30.000 -10.000 0.000000        0.000000        1.000000"</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-comment">#         p1 = Pose()</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-comment">#         p1.position = Point(0.3, -0.1, 0.1)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-comment">#         p2 = Pose()</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-comment">#         p2.position = Point(0.55, -0.1, 0.1)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-comment">#         p3 = Pose()</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-comment">#         p3.position = Point(0.55, 0.04, 0.1)  </tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment">#         c1 = Point(0., 0., 0.)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment">#         c2 = Point(0.25, 0., 0.)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment">#         c3 = Point(0.25, 0.14, 0.)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-comment">#         trafo_matrix = Transformation.get_transformation_matrix([</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-comment">#                 CalibrationPoint(c1, p1),</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-comment">#                 CalibrationPoint(c2, p2),</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-comment">#                 CalibrationPoint(c3, p3)]</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-comment">#                 )</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-comment">#         poses = []</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">         </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-comment">#         for line in path.splitlines():</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-comment">#             data = line.split("\t")</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-comment">#             pose = []</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-comment">#             pose.append(float(data[0]) / 1000)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-comment">#             pose.append(float(data[1]) / 1000)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-comment">#             pose.append(float(data[2]) / 1000)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-comment">#             pose.append(float(data[3]))</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-comment">#             pose.append(float(data[4]))</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-comment">#             pose.append(float(data[5]))</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-comment">#             poses.append(pose)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-comment">#         tf_poses = Transformation.apply_path(poses, trafo_matrix)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">         </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-comment">#         assert self.nearly_equal(poses[0][0] + 0.3, tf_poses[0].position.x, 3)  </tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-comment">#         assert self.nearly_equal(poses[1][0] + 0.3, tf_poses[1].position.x, 3)  </tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-comment">#         _o = tf_poses[0].orientation</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-comment">#         orientation = tf.transformations.euler_from_quaternion(np.array([_o.x, _o.y, _o.z, _o.w]))</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-comment">#         assert np.allclose(np.array([math.pi, 0, 0]), orientation)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="src-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Thu Feb 28 17:32:35 2019
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
